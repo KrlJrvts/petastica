@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from archives.views import get_all_animals, get_animal
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', get_all_animals,  name='all_animals'),
+    path('animal/<animal_id>/', get_animal, name='get_animal')
 ]
