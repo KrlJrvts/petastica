@@ -2,24 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet/text" href="static/styles/style.css" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>
+
+    <title>Title</title>
 </head>
 <body>
+<div class="container text-center">
+    <div class="row mb-5 mt-5">
+        <div class="col-2">
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle wide" role="button" id="dropdownMenuLink"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    <h2>Menu</h2>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    {% for animal in all_animals_list %}
+                        <li><a class="dropdown-item "
+                               href="{% url 'get-animal' animal.id %}">{{ animal.animal_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-2">
+            <a href="{% url 'all_animals' %}" class="btn btn-secondary"><h2>Home</h2></a>
+        </div>
+        <div class="col-8">
+            <h1>Cutestica - when there isn't enough "AWWWWW's"</h1>
+        </div>
+    </div>
+</div>
 
-<h1>
-    {{ animal.animal_name }}
-</h1>
-<p>
-    {{ animal.animal_fact1 }}
-</p>
-<p>
-    {{ animal.animal_fact2 }}
-</p>
+<div class="container text-center mb-3">
+    <div class="row mb-5">
+        <div class="col-8">
+            {{ animal.animal_description }}
+        </div>
+        <div class="col-4">
+            <img class="card-img-top" src="{{ animal.animal_image1.url }}" alt="{{ animal.animal_name }}">
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Length</th>
+                    <th scope="col">Habitat</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ animal.animal_weight }}</td>
+                    <td>{{ animal.animal_length }}</td>
+                    <td>{{ animal.animal_habitat }}</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-4">
+            <img class="card-img-top" src="{{ animal.animal_image1.url }}" alt="{{ animal.animal_name }}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <ul class="list-group align-right">
+                <li class="list-group-item">{{ animal.animal_fact1}}</li>
+                <li class="list-group-item">{{ animal.animal_fact2}}</li>
+                <li class="list-group-item">{{ animal.animal_fact3}}</li>
+            </ul>
+        </div>
+        <div class="col-4">
+            <img class="card-img-top" src="{{ animal.animal_image1.url }}" alt="{{ animal.animal_name }}">
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>

@@ -23,4 +23,4 @@ class Animal(models.Model):
     animal_fact2 = models.CharField(blank=True, null=True, max_length=256)
     animal_fact3 = models.CharField(blank=True, null=True, max_length=256)
     animal_sound = models.CharField(blank=True, null=True, max_length=128)
-    animal_image1 = models.ImageField(blank=True, null=True)
+    animal_image1 = models.ImageField(blank=True, null=True, upload_to='')
