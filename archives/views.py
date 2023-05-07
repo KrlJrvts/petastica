@@ -6,6 +6,8 @@ from django.db import DatabaseError
 from archives.models import Animal
 
 
+""" missing, add, delete and edit"""
+
 def get_all_animals(request):
     all_animals = Animal.objects.all()
 
