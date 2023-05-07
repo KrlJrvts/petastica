@@ -20,8 +20,12 @@ from archives.views import get_all_animals, get_animal
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+""" missing add, delete and edit animals"""
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_all_animals, name='all_animals'),
-    path('animal/<int:animal_id>/', get_animal, name='get-animal'),  # added int: to specify animal_id is an integer
+    path('', get_all_animals, name='all-animals'),
+    path('animal/<int:animal_id>/', get_animal, name='get-animal'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
