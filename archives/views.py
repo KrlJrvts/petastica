@@ -5,7 +5,6 @@ from django.db import DatabaseError
 
 from archives.models import Animal
 
-
 """ missing, add, delete and edit"""
 
 
@@ -30,6 +29,3 @@ def get_animal(request, animal_id):
     }
 
     return render(request, 'animal.html', context)
-
-
-
