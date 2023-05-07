@@ -11,6 +11,7 @@
 
     <title>Title</title>
 </head>
+
 <body>
 <div class="container text-center">
     <div class="row mb-5 mt-5">
@@ -41,9 +42,10 @@
     <div class="row">
         {% for animal in all_animals_list %}
             <div class="col-md-3 mb-3 mt-3 text-decoration-none">
-                <a href="{% url 'get-animal' animal.id %}" >
+                <a href="{% url 'get-animal' animal.id %}">
                     <div class="card">
-                        <img class="card-img-top img-rounded" src="{{ animal.animal_image1.url }}" alt="{{ animal.animal_name }}">
+                        <img class="card-img-top img-rounded" src="{{ animal.animal_image1.url }}"
+                             alt="{{ animal.animal_name }}">
                         <div class="card-body">
                             <h5 class="card-title" class="text-decoration-none">{{ animal.animal_name }}</h5>
                         </div>
